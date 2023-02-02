@@ -1,0 +1,303 @@
+{
+	"info": {
+		"_postman_id": "f16455eb-7992-41a1-b4b4-c93bb1ff2f6c",
+		"name": "YKB Case",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18525509"
+	},
+	"item": [
+		{
+			"name": "AuthController",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@admin.com\",\n    \"password\": \"admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/auth/login",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserManagementController",
+			"item": [
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ3d3cueXVzdWZkdXJzdW4uY29tIiwiaWF0IjoxNjc1MzM1OTkzLCJleHAiOjE2NzU2MzU5OTN9.x8BHH0VSxmJgAmVKObcgYq680gZ1UuxgCaekn43W0yWHnQlt_9kM_FLCLO2yAvQL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"yusuf@gmail.com\",\n    \"password\": \"admin\",\n    \"role\": \"ADMIN\",\n    \"startedAt\": \"2023-02-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/user-management/create",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"user-management",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LiveRequestController",
+			"item": [
+				{
+					"name": "getUserLeaveRequestList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyQHVzZXIuY29tIiwiaXNzIjoid3d3Lnl1c3VmZHVyc3VuLmNvbSIsImlhdCI6MTY3NTMyNTA4MSwiZXhwIjoxNjc1NjI1MDgxfQ.3PQopiksB4Y7j4hpwN3bHcsZGVPVr8_WFW97mAzmHqgIytMSZlhaZjmtZD2u_jV-",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/live-request?page=0&size=20",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"live-request"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createLeaveRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ1c2VyQHVzZXIuY29tIiwiaXNzIjoid3d3Lnl1c3VmZHVyc3VuLmNvbSIsImlhdCI6MTY3NTMyNTA4MSwiZXhwIjoxNjc1NjI1MDgxfQ.3PQopiksB4Y7j4hpwN3bHcsZGVPVr8_WFW97mAzmHqgIytMSZlhaZjmtZD2u_jV-",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"Annual leave request\",\n    \"startDate\": \"2023-02-02\",\n    \"endDate\": \"2023-02-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/live-request/create",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"live-request",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "LiveRequestManagementController",
+			"item": [
+				{
+					"name": "getAllLeaveRequests",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ3d3cueXVzdWZkdXJzdW4uY29tIiwiaWF0IjoxNjc1MzM1OTkzLCJleHAiOjE2NzU2MzU5OTN9.x8BHH0VSxmJgAmVKObcgYq680gZ1UuxgCaekn43W0yWHnQlt_9kM_FLCLO2yAvQL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{API_URL}}/live-request-management?page=0&size=20",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"live-request-management"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "20"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "operateLeaveRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5jb20iLCJpc3MiOiJ3d3cueXVzdWZkdXJzdW4uY29tIiwiaWF0IjoxNjc1MzM1OTkzLCJleHAiOjE2NzU2MzU5OTN9.x8BHH0VSxmJgAmVKObcgYq680gZ1UuxgCaekn43W0yWHnQlt_9kM_FLCLO2yAvQL",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "tr",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"leaveRequestStatus\": \"APPROVED\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_URL}}/live-request-management/2/operate",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"live-request-management",
+								"2",
+								"operate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}

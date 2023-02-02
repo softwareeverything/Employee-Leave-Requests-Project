@@ -1,0 +1,53 @@
+spring:
+  messages:
+    basename: messages,config.i18n.messages
+    encoding: UTF-8
+    fallback-to-system-locale: true
+  datasource:
+    url: jdbc:mysql://localhost:3307/demo_db?useSSL=false
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+        show_sql: true
+        use_sql_comments: true
+        format_sql: true
+    show-sql: true
+  flyway:
+    enabled: true
+    user: root
+    password: 123456
+    url: jdbc:mysql://localhost:3307/demo_db
+    table: flyway_schema_history_demo_db
+    baseline-on-migrate: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+jwt:
+  token:
+    issuer:
+      domain: www.yusufdursun.com
+    access:
+      secret: denemejkfdjsqBsafsaashuwrhuhsdfsdhjxccxvjksdfjkjsfdjkjksahahfdkasjkj
+      expire:
+        milliseconds: 300000000
+    refresh:
+      secret: deneme2jkfdjsqBsafsaashuwrhuhsdfsdhjxccxvjksdfjkjsfdjkjksahahfdkasjk
+      expire:
+        milliseconds: 600000000
+
+springdoc:
+  swagger-ui:
+    path: /v1/api-doc/index.html
+  packages-to-scan: com.ydursun.demo.endpoint
+
+logging:
+  level:
+    org:
+      hibernate:
+        type: trace
